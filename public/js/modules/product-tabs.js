@@ -15,7 +15,6 @@ export function initProductTabs() {
     tab.addEventListener('click', handleTabClick);
   });
   
-  // Ensure there's an active tab on page load
   ensureActiveTab();
 }
 
@@ -35,16 +34,13 @@ function handleTabClick(event) {
     tab.classList.remove('products__tab--active');
   });
   
-  // Add active class to clicked tab
   clickedTab.classList.add('products__tab--active');
   
-  // Remove active class from all products
   const allProducts = tabsContent.querySelectorAll('.product');
   allProducts.forEach(product => {
     product.classList.remove('product--active');
   });
   
-  // Add active class to corresponding product
   const activeProduct = document.getElementById(tabId);
   if (activeProduct) {
     activeProduct.classList.add('product--active');
@@ -59,18 +55,14 @@ function ensureActiveTab() {
     return;
   }
   
-  // Check if there's already an active tab
   const activeTab = tabsContainer.querySelector('.products__tab--active');
   
-  // If not, activate the first tab
   if (!activeTab && tabsContainer.querySelector('.products__tab')) {
     const firstTab = tabsContainer.querySelector('.products__tab');
     const firstTabId = firstTab.dataset.tab;
     
-    // Activate first tab
     firstTab.classList.add('products__tab--active');
     
-    // Activate first product
     const firstProduct = document.getElementById(firstTabId);
     if (firstProduct) {
       firstProduct.classList.add('product--active');

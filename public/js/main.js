@@ -4,8 +4,6 @@ import { initForms } from './modules/forms.js';
 import { initModals } from './modules/modals.js';
 import { initScrollAnimations } from './modules/scroll.js';
 
-
-
 function initApp() {
   initNavigation();
   initProductTabs();
@@ -58,6 +56,5 @@ function initMap() {
       map.invalidateSize();
     }, 100);
   } catch (error) {
-    // Silent error handling
   }
 } 
