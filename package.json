@@ -10,7 +10,8 @@
     "serve": "browser-sync start --server --files 'css/*.css, js/**/*.js, *.html'",
     "dev": "npm-run-all --parallel sass:watch serve",
     "imagemin": "imagemin images/original/* --out-dir=images/optimized",
-    "build": "npm-run-all sass:build imagemin"
+    "build": "npm-run-all sass:build imagemin copy:public",
+    "copy:public": "mkdir -p public && cp index.html public/ && cp -r css/ public/css && cp -r images/optimized public/images"
   },
   "author": "ZTZ",
   "license": "ISC",
