@@ -4,7 +4,6 @@ export function initNavigation() {
   const header = document.querySelector('.header');
   const burger = document.querySelector('.header__burger');
   const mobileNavHTML = createMobileNav();
-  const learnMoreBtn = document.querySelector('.hero__cta .button--outline');
   
   
   if (!document.querySelector('.mobile-nav')) {
@@ -75,26 +74,8 @@ export function initNavigation() {
   }
   
   
-  if (learnMoreBtn) {
-    learnMoreBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const aboutSection = document.getElementById('about');
-      
-      if (aboutSection) {
-        const headerHeight = header ? header.offsetHeight : 0;
-        const targetPosition = aboutSection.offsetTop - headerHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-  }
-  
-  
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
+    if (window.scrollY > 50) {
       header.classList.add('header--scrolled');
     } else {
       header.classList.remove('header--scrolled');
