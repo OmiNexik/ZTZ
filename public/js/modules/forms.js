@@ -1,5 +1,3 @@
-
-
 export function initForms() {
   
   const contactForm = document.getElementById('contactForm');
@@ -149,9 +147,6 @@ function submitForm(form, formData) {
     if (modal) {
       modal.classList.remove('active');
     }
-    
-    
-    console.log('Form submitted with data:', data);
   }, 1000);
   
   

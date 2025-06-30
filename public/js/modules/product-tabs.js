@@ -2,18 +2,14 @@ export function initProductTabs() {
   const tabsContainer = document.querySelector('.products__tabs');
   
   if (!tabsContainer) {
-    console.warn('Products tabs container not found');
     return;
   }
   
   const tabs = tabsContainer.querySelectorAll('.products__tab');
   
   if (tabs.length === 0) {
-    console.warn('No product tabs found');
     return;
   }
-  
-  console.log(`Found ${tabs.length} product tabs`);
   
   tabs.forEach(tab => {
     tab.addEventListener('click', handleTabClick);
@@ -29,10 +25,7 @@ function handleTabClick(event) {
   const tabsContainer = clickedTab.closest('.products__tabs');
   const tabsContent = document.querySelector('.products__content');
   
-  console.log(`Tab clicked: ${tabId}`);
-  
   if (!tabId || !tabsContainer || !tabsContent) {
-    console.error('Missing required elements for product tabs');
     return;
   }
   
@@ -55,9 +48,6 @@ function handleTabClick(event) {
   const activeProduct = document.getElementById(tabId);
   if (activeProduct) {
     activeProduct.classList.add('product--active');
-    console.log(`Product activated: ${tabId}`);
-  } else {
-    console.error(`Product with id "${tabId}" not found`);
   }
 }
 
@@ -77,8 +67,6 @@ function ensureActiveTab() {
     const firstTab = tabsContainer.querySelector('.products__tab');
     const firstTabId = firstTab.dataset.tab;
     
-    console.log(`No active tab found, activating first tab: ${firstTabId}`);
-    
     // Activate first tab
     firstTab.classList.add('products__tab--active');
     
@@ -86,8 +74,6 @@ function ensureActiveTab() {
     const firstProduct = document.getElementById(firstTabId);
     if (firstProduct) {
       firstProduct.classList.add('product--active');
-    } else {
-      console.error(`Product with id "${firstTabId}" not found`);
     }
   }
 } 

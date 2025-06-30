@@ -5,25 +5,14 @@ import { initModals } from './modules/modals.js';
 import { initScrollAnimations } from './modules/scroll.js';
 import { initAnimations } from './modules/animations.js';
 
-// Check if GSAP and ScrollTrigger are loaded
 function checkGSAP() {
-  if (typeof gsap === 'undefined') {
-    console.error('GSAP not loaded. Animations will not work properly.');
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
     return false;
   }
-  
-  if (typeof ScrollTrigger === 'undefined') {
-    console.error('ScrollTrigger not loaded. Scroll animations will not work properly.');
-    return false;
-  }
-  
-  console.log('GSAP and ScrollTrigger are loaded and ready');
   return true;
 }
 
 function initApp() {
-  console.log('Initializing application...');
-  
   initNavigation();
   initProductTabs();
   initForms();
@@ -38,7 +27,6 @@ function initApp() {
       
       setTimeout(() => {
         ScrollTrigger.refresh();
-        console.log('ScrollTrigger refreshed');
       }, 300);
     }, 100);
   }
@@ -52,7 +40,6 @@ window.addEventListener('load', () => {
   if (typeof ScrollTrigger !== 'undefined') {
     setTimeout(() => {
       ScrollTrigger.refresh();
-      console.log('ScrollTrigger refreshed after window load');
     }, 200);
   }
 });
@@ -61,7 +48,6 @@ function initMap() {
   const mapElement = document.getElementById('map');
   
   if (!mapElement) {
-    console.warn('Map element not found');
     return;
   }
   
@@ -90,11 +76,8 @@ function initMap() {
     
     setTimeout(() => {
       map.invalidateSize();
-      console.log('Map resized');
     }, 100);
-    
-    console.log('Map initialized successfully');
   } catch (error) {
-    console.error('Error initializing map:', error);
+    // Silent error handling
   }
 } 
