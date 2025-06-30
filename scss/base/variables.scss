@@ -1,0 +1,65 @@
+
+$color-primary: #f04c2f; 
+$color-secondary: #f37032; 
+$color-dark: #000000; 
+$color-gray: #333333; 
+$color-light-gray: #f4f4f4; 
+$color-white: #ffffff;
+$color-black: #000000;
+
+$font-family-base: 'Arial', sans-serif;
+$font-primary: $font-family-base; 
+$font-secondary: 'Roboto Mono', monospace; 
+$font-size-base: 16px;
+$font-size-small: 14px;
+$font-size-large: 18px;
+$font-size-xlarge: 24px;
+$font-size-xxlarge: 32px;
+$font-size-xxxlarge: 42px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$line-height-base: 1.5;
+$line-height-small: 1.2;
+$line-height-large: 1.8;
+
+$spacing-xs: 4px;
+$spacing-s: 8px;
+$spacing-m: 16px;
+$spacing-l: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$spacing-xxxl: 64px;
+
+$container-max-width: 1280px;
+$container-padding: $spacing-m;
+
+$breakpoint-xs: 320px;
+$breakpoint-sm: 375px;
+$breakpoint-md: 480px;
+$breakpoint-lg: 768px;
+$breakpoint-xl: 1024px;
+$breakpoint-xxl: 1280px;
+$breakpoint-xxxl: 1440px;
+
+$border-radius-small: 3px;
+$border-radius-base: 5px;
+$border-radius-large: 8px;
+
+$shadow-small: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+$shadow-large: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+$transition-base: all 0.3s ease;
+$transition-fast: all 0.15s ease;
+$transition-slow: all 0.5s ease;
+
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070; 

@@ -1,0 +1,146 @@
+
+
+.hero {
+  padding: 120px 0 $spacing-xxl;
+  background-color: $color-white;
+  position: relative;
+  overflow: hidden;
+  
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xl;
+    align-items: center;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: 1fr;
+      gap: $spacing-l;
+    }
+  }
+  
+  &__content {
+    @media (max-width: $breakpoint-lg) {
+      order: 2;
+      text-align: center;
+    }
+  }
+  
+  &__title {
+    margin-bottom: $spacing-l;
+    color: $color-dark;
+    
+    @media (max-width: $breakpoint-lg) {
+      margin-bottom: $spacing-m;
+    }
+  }
+  
+  &__description {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-xl;
+    color: $color-gray;
+    max-width: 600px;
+    
+    @media (max-width: $breakpoint-lg) {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: $spacing-l;
+      font-size: $font-size-base;
+    }
+  }
+  
+  &__cta {
+    display: flex;
+    gap: $spacing-m;
+    
+    @media (max-width: $breakpoint-lg) {
+      justify-content: center;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      flex-direction: column;
+    }
+  }
+  
+  &__image {
+    position: relative;
+    
+    @media (max-width: $breakpoint-lg) {
+      order: 1;
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+  
+  &__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: $border-radius-base;
+    box-shadow: $shadow-large;
+  }
+  
+  
+  &--bg-image {
+    position: relative;
+    color: $color-white;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color-dark, 0.7);
+      z-index: 1;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero__title,
+    .hero__description {
+      color: $color-white;
+    }
+  }
+  
+  
+  &--bg-primary {
+    background-color: $color-primary;
+    color: $color-white;
+    
+    .hero__title,
+    .hero__description {
+      color: $color-white;
+    }
+  }
+  
+  
+  &--diagonal {
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: $color-white;
+      transform: skewY(-3deg);
+      transform-origin: bottom left;
+      z-index: 1;
+      
+      @media (max-width: $breakpoint-md) {
+        height: 60px;
+      }
+    }
+    
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+  }
+} 

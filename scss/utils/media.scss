@@ -1,0 +1,138 @@
+
+
+@mixin respond-above($breakpoint) {
+  @if $breakpoint == xs {
+    @media (min-width: $breakpoint-xs) { @content; }
+  }
+  @else if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  }
+  @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  }
+  @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  }
+  @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  }
+  @else if $breakpoint == xxl {
+    @media (min-width: $breakpoint-xxl) { @content; }
+  }
+  @else if $breakpoint == xxxl {
+    @media (min-width: $breakpoint-xxxl) { @content; }
+  }
+}
+
+@mixin respond-below($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: $breakpoint-xs - 1) { @content; }
+  }
+  @else if $breakpoint == sm {
+    @media (max-width: $breakpoint-sm - 1) { @content; }
+  }
+  @else if $breakpoint == md {
+    @media (max-width: $breakpoint-md - 1) { @content; }
+  }
+  @else if $breakpoint == lg {
+    @media (max-width: $breakpoint-lg - 1) { @content; }
+  }
+  @else if $breakpoint == xl {
+    @media (max-width: $breakpoint-xl - 1) { @content; }
+  }
+  @else if $breakpoint == xxl {
+    @media (max-width: $breakpoint-xxl - 1) { @content; }
+  }
+  @else if $breakpoint == xxxl {
+    @media (max-width: $breakpoint-xxxl - 1) { @content; }
+  }
+}
+
+@mixin respond-between($lower, $upper) {
+  $lower-breakpoint: 0;
+  $upper-breakpoint: 0;
+  
+  @if $lower == xs {
+    $lower-breakpoint: $breakpoint-xs;
+  }
+  @else if $lower == sm {
+    $lower-breakpoint: $breakpoint-sm;
+  }
+  @else if $lower == md {
+    $lower-breakpoint: $breakpoint-md;
+  }
+  @else if $lower == lg {
+    $lower-breakpoint: $breakpoint-lg;
+  }
+  @else if $lower == xl {
+    $lower-breakpoint: $breakpoint-xl;
+  }
+  @else if $lower == xxl {
+    $lower-breakpoint: $breakpoint-xxl;
+  }
+  
+  @if $upper == sm {
+    $upper-breakpoint: $breakpoint-sm - 1;
+  }
+  @else if $upper == md {
+    $upper-breakpoint: $breakpoint-md - 1;
+  }
+  @else if $upper == lg {
+    $upper-breakpoint: $breakpoint-lg - 1;
+  }
+  @else if $upper == xl {
+    $upper-breakpoint: $breakpoint-xl - 1;
+  }
+  @else if $upper == xxl {
+    $upper-breakpoint: $breakpoint-xxl - 1;
+  }
+  @else if $upper == xxxl {
+    $upper-breakpoint: $breakpoint-xxxl - 1;
+  }
+  
+  @media (min-width: $lower-breakpoint) and (max-width: $upper-breakpoint) {
+    @content;
+  }
+}
+
+@mixin retina {
+  @media 
+    only screen and (-webkit-min-device-pixel-ratio: 2),
+    only screen and (min--moz-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin iphone-se {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 320px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin iphone-13 {
+  @media only screen and (min-device-width: 390px) and (max-device-width: 390px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin ipad {
+  @media only screen and (min-device-width: 768px) and (max-device-width: 768px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media screen and (orientation: portrait) {
+    @content;
+  }
+} 

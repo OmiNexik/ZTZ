@@ -1,0 +1,231 @@
+
+
+.cases {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xxl;
+    
+    @include media-md {
+      gap: $spacing-xl;
+    }
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: $spacing-xl;
+    
+    @include media-sm {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__featured {
+    margin-bottom: $spacing-xxl;
+    
+    @include media-md {
+      margin-bottom: $spacing-xl;
+    }
+  }
+}
+
+.case-study {
+  background-color: $color-white;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-medium;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-large;
+  }
+  
+  &__image {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__content {
+    padding: $spacing-l;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__tag {
+    display: inline-block;
+    padding: $spacing-xs $spacing-s;
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+    font-size: $font-size-small;
+    font-weight: $font-weight-medium;
+    border-radius: $border-radius-small;
+    margin-bottom: $spacing-s;
+  }
+  
+  &__title {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    margin-bottom: $spacing-m;
+  }
+  
+  &__description {
+    font-size: $font-size-base;
+    line-height: $line-height-large;
+    color: $color-gray;
+    margin-bottom: $spacing-l;
+    flex-grow: 1;
+  }
+  
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $spacing-m;
+    border-top: 1px solid $color-light-gray;
+    font-size: $font-size-small;
+    color: $color-gray;
+  }
+  
+      &__date {
+    display: flex;
+    align-items: center;
+    
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-right: $spacing-xs;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm-1-13h2v5h-2zm0 6h2v2h-2z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+  
+  &__client {
+    font-weight: $font-weight-medium;
+  }
+  
+  
+  &--featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    .case-study__image {
+      height: 100%;
+      min-height: 350px;
+    }
+    
+    .case-study__content {
+      padding: $spacing-xl;
+    }
+    
+    .case-study__title {
+      font-size: $font-size-xlarge;
+      margin-bottom: $spacing-l;
+    }
+    
+    @include media-lg {
+      grid-template-columns: 1fr;
+      
+      .case-study__image {
+        min-height: 250px;
+      }
+      
+      .case-study__content {
+        padding: $spacing-l;
+      }
+      
+      .case-study__title {
+        font-size: $font-size-large;
+        margin-bottom: $spacing-m;
+      }
+    }
+  }
+  
+  
+  &--industrial {
+    border-left: 4px solid $color-primary;
+    border-radius: 0 $border-radius-base $border-radius-base 0;
+    
+    .case-study__tag {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+    
+    .case-study__meta {
+      border-top: 1px solid rgba($color-primary, 0.2);
+    }
+  }
+}
+
+.case-details {
+  &__header {
+    margin-bottom: $spacing-xxl;
+  }
+  
+  &__meta {
+    display: flex;
+    gap: $spacing-l;
+    margin-bottom: $spacing-l;
+    
+    @include media-md {
+      flex-wrap: wrap;
+      gap: $spacing-m;
+    }
+  }
+  
+  &__meta-item {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+  }
+  
+  &__meta-label {
+    font-size: $font-size-small;
+    color: $color-gray;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__meta-value {
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+  }
+  
+  &__gallery {
+    margin: $spacing-xl 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-m;
+  }
+  
+  &__gallery-item {
+    height: 200px;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: $border-radius-small;
+    }
+  }
+} 

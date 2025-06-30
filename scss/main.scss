@@ -1,0 +1,26 @@
+
+@import "base/variables";
+
+@import "utils/mixins";
+@import "utils/helpers";
+@import "utils/animations";
+@import "utils/media";
+
+@import "base/reset";
+@import "base/typography";
+@import "base/global";
+
+@import "layout/grid";
+@import "layout/header";
+@import "layout/footer";
+
+@import "blocks/buttons";
+@import "blocks/forms";
+@import "blocks/hero";
+@import "blocks/about";
+@import "blocks/products";
+@import "blocks/advantages";
+@import "blocks/clients";
+@import "blocks/cases";
+@import "blocks/contact";
+@import "blocks/modal"; 

@@ -1,0 +1,432 @@
+// Form styles
+
+.form {
+  width: 100%;
+  
+  &__field {
+    margin-bottom: $spacing-m;
+    position: relative;
+    
+    &--required .form__label::after {
+      content: "*";
+      color: $color-secondary;
+      margin-left: 4px;
+    }
+    
+    &--success {
+      .form__input,
+      .form__textarea,
+      .form__select {
+        border-color: #28a745;
+        
+        &:focus {
+          box-shadow: 0 0 0 3px rgba(#28a745, 0.1);
+        }
+      }
+    }
+    
+    &--error {
+      .form__input,
+      .form__textarea,
+      .form__select {
+        border-color: $color-secondary;
+        
+        &:focus {
+          box-shadow: 0 0 0 3px rgba($color-secondary, 0.1);
+        }
+      }
+    }
+  }
+  
+  &__label {
+    display: block;
+    font-weight: $font-weight-medium;
+    margin-bottom: $spacing-xs;
+    color: $color-dark;
+    font-size: $font-size-small;
+    transition: all 0.2s ease;
+  }
+  
+  &__input,
+  &__textarea,
+  &__select {
+    width: 100%;
+    padding: $spacing-s $spacing-m;
+    border: 1.5px solid rgba($color-dark, 0.2);
+    border-radius: $border-radius-base;
+    background-color: $color-white;
+    font-size: $font-size-base;
+    transition: all 0.3s ease;
+    color: $color-dark;
+    font-family: $font-primary;
+    
+    &::placeholder {
+      color: rgba($color-dark, 0.4);
+      transition: opacity 0.2s ease;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+      
+      &::placeholder {
+        opacity: 0.5;
+      }
+    }
+  }
+  
+  &__input {
+    height: 50px;
+    
+    // Special styling for phone inputs
+    &[type="tel"] {
+      letter-spacing: 0.5px;
+      font-family: $font-secondary;
+    }
+  }
+  
+  &__textarea {
+    min-height: 120px;
+    resize: vertical;
+    padding-top: $spacing-s;
+  }
+  
+  &__select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23333' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+    cursor: pointer;
+    
+    &::-ms-expand {
+      display: none;
+    }
+  }
+  
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    
+    &:focus + .form__checkbox-label::before {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.1);
+    }
+    
+    &:checked + .form__checkbox-label::before {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+    
+    &:checked + .form__checkbox-label::after {
+      opacity: 1;
+    }
+    
+    &:disabled + .form__checkbox-label {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+  
+  &__checkbox-label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: $font-size-small;
+    line-height: 22px;
+    user-select: none;
+    color: rgba($color-dark, 0.8);
+    transition: all 0.2s ease;
+    
+    a {
+      color: $color-primary;
+      text-decoration: none;
+      border-bottom: 1px solid rgba($color-primary, 0.3);
+      transition: all 0.2s ease;
+      
+      &:hover {
+        border-bottom-color: $color-primary;
+      }
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid rgba($color-dark, 0.25);
+      border-radius: $border-radius-small;
+      background-color: $color-white;
+      transition: all 0.3s ease;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 4px;
+      width: 6px;
+      height: 11px;
+      border: solid $color-white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: all 0.2s ease;
+    }
+    
+    &:hover::before {
+      border-color: $color-primary;
+    }
+  }
+  
+  &__error {
+    color: $color-secondary;
+    font-size: $font-size-small;
+    margin-top: $spacing-xs;
+    display: none;
+    font-weight: $font-weight-medium;
+    
+    &.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+  }
+  
+  &__submit {
+    margin-top: $spacing-l;
+    width: 100%;
+  }
+  
+  &__agreement {
+    margin-top: $spacing-l;
+  }
+  
+  &__help-text {
+    font-size: $font-size-small;
+    color: rgba($color-dark, 0.6);
+    margin-top: $spacing-xs;
+  }
+  
+  &__file {
+    &-input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+    
+    &-label {
+      display: inline-flex;
+      align-items: center;
+      padding: $spacing-s $spacing-m;
+      border: 1.5px dashed rgba($color-dark, 0.2);
+      border-radius: $border-radius-base;
+      background-color: rgba($color-light-gray, 0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      font-weight: normal;
+      
+      &:hover {
+        border-color: $color-primary;
+        background-color: rgba($color-primary, 0.03);
+      }
+      
+      &:before {
+        content: "📎";
+        margin-right: $spacing-s;
+        font-size: 1.2em;
+      }
+    }
+    
+    &-name {
+      margin-top: $spacing-xs;
+      font-size: $font-size-small;
+      color: $color-gray;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      display: block;
+    }
+  }
+}
+
+// Custom styles for specific forms
+.contact__form {
+  background-color: $color-white;
+  padding: $spacing-xl;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-medium;
+  position: relative;
+  border-top: 4px solid $color-primary;
+  
+  @include media-lg {
+    padding: $spacing-l;
+  }
+  
+  .form__submit {
+    margin-top: $spacing-xl;
+  }
+  
+  &__title {
+    margin-bottom: $spacing-l;
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    position: relative;
+    
+    &::after {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 3px;
+      background-color: $color-primary;
+      margin-top: $spacing-xs;
+    }
+  }
+}
+
+.modal__form {
+  .form__field {
+    margin-bottom: $spacing-s;
+  }
+  
+  .form__submit {
+    margin-top: $spacing-l;
+  }
+}
+
+// Form groups (for horizontal forms)
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -#{$spacing-s};
+  margin-left: -#{$spacing-s};
+  
+  .form__field {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-right: $spacing-s;
+    padding-left: $spacing-s;
+    
+    @include media-md {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+}
+
+// Search form
+.search-form {
+  position: relative;
+  max-width: 500px;
+  
+  .form__input {
+    padding-right: 50px;
+    padding-left: 40px;
+    border-radius: 25px;
+    height: 44px;
+    font-size: $font-size-small;
+  }
+  
+  &::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23999' d='M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+  }
+  
+  .form__submit {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: 36px;
+    margin: 0;
+    padding: 0 $spacing-m;
+    border-radius: 20px;
+    font-size: $font-size-small;
+  }
+}
+
+// Technical specification request form
+.spec-request {
+  border-left: 4px solid $color-primary;
+  padding-left: $spacing-m;
+  background-color: rgba($color-light-gray, 0.3);
+  padding: $spacing-m;
+  margin-bottom: $spacing-l;
+  
+  &__title {
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-s;
+    font-size: $font-size-base;
+  }
+  
+  .form__field {
+    margin-bottom: $spacing-s;
+  }
+  
+  .form__submit {
+    margin-top: $spacing-m;
+  }
+}
+
+// Form loading state
+.form--loading {
+  .form__submit {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 

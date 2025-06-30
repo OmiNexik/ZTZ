@@ -1,0 +1,258 @@
+
+
+.clients {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xxl;
+    
+    @include media-md {
+      gap: $spacing-xl;
+    }
+  }
+  
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $spacing-xl;
+    
+    @include media-xl {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include media-sm {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.client {
+  background-color: $color-white;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-small;
+  padding: $spacing-l;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $shadow-medium;
+  }
+  
+  &__logo {
+    max-width: 80%;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.7;
+    transition: $transition-base;
+  }
+  
+  &:hover &__logo {
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+}
+
+.cases {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  
+  @include media-md {
+    gap: $spacing-l;
+  }
+}
+
+.case {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: $spacing-xl;
+  background-color: $color-white;
+  border-radius: $border-radius-large;
+  box-shadow: $shadow-medium;
+  overflow: hidden;
+  
+  @include media-lg {
+    grid-template-columns: 1fr;
+  }
+  
+  &__image {
+    position: relative;
+    height: 100%;
+    min-height: 250px;
+    
+    @include media-lg {
+      min-height: 200px;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  &__content {
+    padding: $spacing-xl;
+    display: flex;
+    flex-direction: column;
+    
+    @include media-md {
+      padding: $spacing-l;
+    }
+  }
+  
+  &__title {
+    font-size: $font-size-xlarge;
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    margin-bottom: $spacing-m;
+    
+    @include media-md {
+      font-size: $font-size-large;
+    }
+  }
+  
+  &__description {
+    font-size: $font-size-base;
+    line-height: $line-height-large;
+    color: $color-gray;
+    margin-bottom: $spacing-l;
+    flex-grow: 1;
+  }
+  
+  &__stats {
+    display: flex;
+    gap: $spacing-xl;
+    
+    @include media-md {
+      flex-direction: column;
+      gap: $spacing-m;
+    }
+  }
+  
+  &__stat {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__stat-name {
+    font-size: $font-size-small;
+    color: $color-gray;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__stat-value {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    
+    @include media-md {
+      font-size: $font-size-base;
+    }
+  }
+  
+  
+  &--card {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    
+    .case__image {
+      height: 200px;
+    }
+    
+    .case__content {
+      padding: $spacing-l;
+    }
+    
+    .case__title {
+      font-size: $font-size-large;
+    }
+  }
+  
+  
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+    
+    .case__title,
+    .case__description,
+    .case__stat-name,
+    .case__stat-value {
+      color: $color-white;
+    }
+    
+    .case__stat-name {
+      opacity: 0.8;
+    }
+  }
+}
+
+.case-carousel {
+  position: relative;
+  padding: 0 $spacing-xl;
+  
+  &__slide {
+    display: none;
+    
+    &.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+  }
+  
+  &__nav {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-m;
+    margin-top: $spacing-l;
+  }
+  
+  &__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba($color-dark, 0.2);
+    cursor: pointer;
+    transition: $transition-base;
+    
+    &.active,
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
+  
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $color-white;
+    box-shadow: $shadow-small;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: $transition-base;
+    
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+    
+    &--prev {
+      left: 0;
+    }
+    
+    &--next {
+      right: 0;
+    }
+  }
+} 

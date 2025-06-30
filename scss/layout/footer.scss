@@ -1,0 +1,171 @@
+
+
+.footer {
+  background-color: $color-dark;
+  color: $color-white;
+  padding: $spacing-xxl 0;
+  
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: $spacing-xl;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__company {
+    grid-column: span 3;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-column: span 2;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      grid-column: span 1;
+    }
+  }
+  
+  &__logo {
+    margin-bottom: $spacing-l;
+    max-width: 180px;
+    
+    &-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  &__copyright {
+    font-size: $font-size-small;
+    color: rgba($color-white, 0.7);
+  }
+  
+  &__nav {
+    grid-column: span 2;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-column: 1 / 2;
+    }
+  }
+  
+  &__contacts {
+    grid-column: span 3;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-column: 2 / 3;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      grid-column: span 1;
+    }
+  }
+  
+  &__requisites {
+    grid-column: span 2;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-column: 1 / 2;
+    }
+  }
+  
+  &__map {
+    grid-column: span 2;
+    
+    @media (max-width: $breakpoint-lg) {
+      grid-column: 2 / 3;
+    }
+    
+    @media (max-width: $breakpoint-md) {
+      grid-column: span 1;
+    }
+  }
+  
+  &__heading {
+    font-size: $font-size-large;
+    margin-bottom: $spacing-l;
+    color: $color-white;
+    position: relative;
+    padding-bottom: $spacing-s;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background-color: $color-primary;
+    }
+  }
+  
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  &__nav-item {
+    margin-bottom: $spacing-s;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__nav-link {
+    color: rgba($color-white, 0.8);
+    transition: $transition-base;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  
+  &__contact-item,
+  &__requisite-item {
+    margin-bottom: $spacing-m;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  &__contact-label,
+  &__requisite-label {
+    display: block;
+    font-size: $font-size-small;
+    color: rgba($color-white, 0.6);
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__contact-value,
+  &__requisite-value {
+    display: block;
+    color: rgba($color-white, 0.9);
+    
+    &[href] {
+      transition: $transition-base;
+      
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+  
+  &__map-container {
+    width: 100%;
+    height: 200px;
+    background-color: rgba($color-white, 0.1);
+    border-radius: $border-radius-base;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba($color-white, 0.1);
+  }
+} 

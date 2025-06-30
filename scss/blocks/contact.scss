@@ -1,0 +1,238 @@
+
+
+.contact {
+  background-color: $color-light-gray;
+  
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-xxl;
+    
+    @include media-lg {
+      grid-template-columns: 1fr;
+      gap: $spacing-xl;
+    }
+  }
+  
+  &__info {
+    @include media-lg {
+      order: 2;
+    }
+  }
+  
+  &__subheading {
+    font-size: $font-size-xlarge;
+    font-weight: $font-weight-bold;
+    color: $color-dark;
+    margin-bottom: $spacing-xl;
+    
+    @include media-md {
+      font-size: $font-size-large;
+      margin-bottom: $spacing-l;
+    }
+  }
+  
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-l;
+  }
+  
+  &__detail {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: $color-white;
+    border-radius: 50%;
+    box-shadow: $shadow-small;
+    margin-right: $spacing-m;
+    flex-shrink: 0;
+    
+    &-img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+  }
+  
+  &__text {
+    flex-grow: 1;
+  }
+  
+  &__label {
+    display: block;
+    font-size: $font-size-small;
+    color: $color-gray;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &__value {
+    display: block;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    color: $color-dark;
+    
+    &:hover {
+      color: $color-primary;
+    }
+  }
+  
+  &__form {
+    @include media-lg {
+      order: 1;
+    }
+  }
+  
+  
+  &__map {
+    grid-column: 1 / -1;
+    margin-top: $spacing-xl;
+    height: 400px;
+    border-radius: $border-radius-base;
+    overflow: hidden;
+    box-shadow: $shadow-small;
+    
+    @include media-lg {
+      height: 300px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+}
+
+.contact-fancy {
+  position: relative;
+  
+  &__wrapper {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+    @include media-lg {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  &__info {
+    background-color: $color-primary;
+    color: $color-white;
+    padding: $spacing-xxl;
+    
+    @include media-md {
+      padding: $spacing-xl;
+    }
+  }
+  
+  &__form-wrapper {
+    padding: $spacing-xxl;
+    background-color: $color-white;
+    
+    @include media-md {
+      padding: $spacing-xl;
+    }
+  }
+  
+  .contact__subheading {
+    color: $color-white;
+  }
+  
+  .contact__label {
+    color: rgba($color-white, 0.7);
+  }
+  
+  .contact__value {
+    color: $color-white;
+    
+    &:hover {
+      color: rgba($color-white, 0.8);
+    }
+  }
+  
+  .contact__icon {
+    background-color: rgba($color-white, 0.1);
+  }
+}
+
+.contact-offset {
+  position: relative;
+  overflow: visible;
+  
+  &__form-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-top: -100px;
+    margin-bottom: -100px;
+    background-color: $color-white;
+    box-shadow: $shadow-large;
+    border-radius: $border-radius-large;
+    padding: $spacing-xxl;
+    
+    @include media-lg {
+      margin: 0;
+      padding: $spacing-xl;
+    }
+  }
+}
+
+.contact-card {
+  background-color: $color-white;
+  border-radius: $border-radius-base;
+  box-shadow: $shadow-small;
+  padding: $spacing-l;
+  
+  &__title {
+    font-size: $font-size-large;
+    font-weight: $font-weight-bold;
+    margin-bottom: $spacing-m;
+    position: relative;
+    padding-bottom: $spacing-s;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: $color-primary;
+    }
+  }
+  
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-m;
+  }
+  
+  &__item {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  &__icon {
+    flex-shrink: 0;
+    margin-right: $spacing-s;
+    color: $color-primary;
+    
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  
+  &__text {
+    font-size: $font-size-small;
+  }
+} 
