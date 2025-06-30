@@ -3,34 +3,12 @@ import { initProductTabs } from './modules/product-tabs.js';
 import { initForms } from './modules/forms.js';
 import { initModals } from './modules/modals.js';
 import { initScrollAnimations } from './modules/scroll.js';
-import { initAnimations } from './modules/animations.js';
-
-function checkGSAP() {
-  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
-    return false;
-  }
-  return true;
-}
 
 function initApp() {
   initNavigation();
   initProductTabs();
   initForms();
   initModals();
-  
-  if (checkGSAP()) {
-    gsap.registerPlugin(ScrollTrigger);
-    
-    setTimeout(() => {
-      initScrollAnimations();
-      initAnimations();
-      
-      setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 300);
-    }, 100);
-  }
-  
   initMap();
 }
 
@@ -78,6 +56,5 @@ function initMap() {
       map.invalidateSize();
     }, 100);
   } catch (error) {
-    // Silent error handling
   }
 } 
