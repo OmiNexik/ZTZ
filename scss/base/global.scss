@@ -1,8 +1,7 @@
-
-
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  font-size: $font-size-base;
 }
 
 *, *::before, *::after {
@@ -23,6 +22,10 @@ body {
   overflow-x: hidden;
   
   &.no-scroll {
+    overflow: hidden;
+  }
+  
+  &.modal-open {
     overflow: hidden;
   }
 }
@@ -46,14 +49,14 @@ img {
 
 section {
   position: relative;
-  padding: $spacing-xxl 0;
+  padding: $spacing-xxxl 0;
   
   @media (max-width: $breakpoint-lg) {
-    padding: $spacing-xl 0;
+    padding: $spacing-xxl 0;
   }
   
   @media (max-width: $breakpoint-md) {
-    padding: $spacing-l 0;
+    padding: $spacing-xl 0;
   }
 }
 
@@ -106,27 +109,27 @@ section {
 }
 
 .mb-0 {
-  margin-bottom: 0;
+  margin-bottom: 0 !important;
 }
 
 .mt-0 {
-  margin-top: 0;
+  margin-top: 0 !important;
 }
 
 .mb-s {
-  margin-bottom: $spacing-s;
+  margin-bottom: $spacing-s !important;
 }
 
 .mb-m {
-  margin-bottom: $spacing-m;
+  margin-bottom: $spacing-m !important;
 }
 
 .mb-l {
-  margin-bottom: $spacing-l;
+  margin-bottom: $spacing-l !important;
 }
 
 .mb-xl {
-  margin-bottom: $spacing-xl;
+  margin-bottom: $spacing-xl !important;
 }
 
 .mb-xxl {
@@ -225,15 +228,21 @@ section {
   }
 }
 
-.mb-s { margin-bottom: $spacing-s; }
-.mb-m { margin-bottom: $spacing-m; }
-.mb-l { margin-bottom: $spacing-l; }
-.mb-xl { margin-bottom: $spacing-xl; }
+.mt-s {
+  margin-top: $spacing-s !important;
+}
 
-.mt-s { margin-top: $spacing-s; }
-.mt-m { margin-top: $spacing-m; }
-.mt-l { margin-top: $spacing-l; }
-.mt-xl { margin-top: $spacing-xl; }
+.mt-m {
+  margin-top: $spacing-m !important;
+}
+
+.mt-l {
+  margin-top: $spacing-l !important;
+}
+
+.mt-xl {
+  margin-top: $spacing-xl !important;
+}
 
 .mx-auto {
   margin-left: auto;
@@ -250,4 +259,122 @@ section {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+}
+
+main {
+  padding-top: 80px;
+}
+
+.section-title {
+  font-size: $font-size-xxxlarge;
+  font-weight: $font-weight-bold;
+  margin-bottom: $spacing-xxl;
+  text-align: center;
+  position: relative;
+  
+  &::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: $color-primary;
+    margin: $spacing-m auto 0;
+  }
+  
+  @include media-lg {
+    font-size: $font-size-xxlarge;
+    margin-bottom: $spacing-xl;
+  }
+  
+  @include media-md {
+    font-size: $font-size-xlarge;
+  }
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: darken($color-primary, 10%);
+  }
+}
+
+.animated-element {
+  will-change: transform, opacity;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 1s ease forwards;
+}
+
+.fade-in-down {
+  animation: fadeInDown 1s ease forwards;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 1s ease forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 } 

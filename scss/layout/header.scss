@@ -1,46 +1,46 @@
-
-
 .header {
-  background-color: $color-white;
-  box-shadow: $shadow-small;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: $z-index-fixed;
+  background-color: rgba($color-white, 0.95);
+  box-shadow: $shadow-small;
+  padding: $spacing-m 0;
+  transition: all 0.3s ease;
+  
+  &--scrolled {
+    padding: $spacing-s 0;
+    background-color: rgba($color-white, 0.98);
+    box-shadow: $shadow-medium;
+    
+    .header__logo {
+      transform: scale(0.9);
+    }
+  }
   
   &__wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: $spacing-m 0;
-    
-    @media (max-width: $breakpoint-lg) {
-      padding: $spacing-s 0;
-    }
   }
   
   &__logo {
-    display: block;
-    max-width: 180px;
+    max-width: 150px;
+    transition: transform 0.3s ease;
     
     &-image {
       display: block;
       width: 100%;
       height: auto;
     }
-    
-    @media (max-width: $breakpoint-lg) {
-      max-width: 150px;
-    }
-    
-    @media (max-width: $breakpoint-md) {
-      max-width: 120px;
-    }
   }
   
   &__nav {
-    @media (max-width: $breakpoint-lg) {
+    margin-left: auto;
+    margin-right: $spacing-xl;
+    
+    @include media-lg {
       display: none;
     }
   }
@@ -49,8 +49,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin-right: $spacing-l;
     
-    @media (max-width: $breakpoint-lg) {
+    @include media-lg {
       display: none;
     }
   }
@@ -59,6 +60,7 @@
     font-weight: $font-weight-bold;
     color: $color-dark;
     margin-bottom: $spacing-xs;
+    transition: color 0.3s ease;
     
     &:hover {
       color: $color-primary;
@@ -66,8 +68,9 @@
   }
   
   &__email {
-    color: $color-gray;
     font-size: $font-size-small;
+    color: $color-gray;
+    transition: color 0.3s ease;
     
     &:hover {
       color: $color-primary;
@@ -75,7 +78,7 @@
   }
   
   &__cta {
-    @media (max-width: $breakpoint-lg) {
+    @include media-md {
       display: none;
     }
   }
@@ -84,31 +87,36 @@
     display: none;
     background: none;
     border: none;
-    padding: $spacing-xs;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 24px;
     position: relative;
+    cursor: pointer;
+    padding: 0;
+    
+    @include media-lg {
+      display: block;
+    }
     
     &-line {
       display: block;
-      width: 24px;
+      width: 100%;
       height: 2px;
       background-color: $color-dark;
       position: absolute;
-      left: 8px;
-      transition: $transition-base;
+      left: 0;
+      transition: all 0.3s ease;
       
       &:nth-child(1) {
-        top: 12px;
+        top: 0;
       }
       
       &:nth-child(2) {
-        top: 19px;
+        top: 50%;
+        transform: translateY(-50%);
       }
       
       &:nth-child(3) {
-        top: 26px;
+        bottom: 0;
       }
     }
     
@@ -116,7 +124,7 @@
       .header__burger-line {
         &:nth-child(1) {
           transform: rotate(45deg);
-          top: 19px;
+          top: 11px;
         }
         
         &:nth-child(2) {
@@ -125,13 +133,9 @@
         
         &:nth-child(3) {
           transform: rotate(-45deg);
-          top: 19px;
+          bottom: 11px;
         }
       }
-    }
-    
-    @media (max-width: $breakpoint-lg) {
-      display: block;
     }
   }
 }
